@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Sales Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Daily Sales Tracker</h1>
+    </header>
+
+    <main>
+        <section class="projection-form-section">
+            <h2>Enter Daily Sales Projection</h2>
+            <div id="message" class="hidden"></div>
+            <div id="error" class="hidden"></div>
+
+            <form id="salesForm" class="sales-form">
+                <div class="form-group">
+                    <label for="salespersonId">Salesperson:</label>
+                    <select id="salespersonId" required>
+                        <option value="">Select Salesperson</option>
+                        </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="entryDate">Date:</label>
+                    <input type="date" id="entryDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectedAmount">Projected Amount:</label>
+                    <input type="number" id="projectedAmount" min="0" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="actualAmount">Actual Sales:</label>
+                    <input type="number" id="actualAmount" min="0" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="commitmentStatus">Commitment Status:</label>
+                    <select id="commitmentStatus" required>
+                        <option value="Met">Met</option>
+                        <option value="Partially Met">Partially Met</option>
+                        <option value="Not Met">Not Met</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Comments/Notes:</label>
+                    <textarea id="comments" rows="3" maxlength="500" placeholder="Add any relevant notes here..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="productService">Product/Service (comma-separated):</label>
+                    <input type="text" id="productService" placeholder="e.g., Product A, Service B">
+                </div>
+
+                <button type="submit" class="submit-button">Submit Projection</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section class="user-projections-section">
+            <h2>Your Daily Projections (<span id="selectedSalespersonName">Select a Salesperson</span>)</h2>
+            <div id="projectionsDisplay">
+                <p>No projections submitted yet for this user.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
